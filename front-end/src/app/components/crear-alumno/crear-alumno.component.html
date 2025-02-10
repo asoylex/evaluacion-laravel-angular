@@ -1,0 +1,38 @@
+<div class="container mt-5">
+  <h2>Crear Alumno</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="name" class="form-label">Nombre</label>
+      <input type="text" class="form-control" id="name" [(ngModel)]="alumno.name" name="name" required>
+    </div>
+    <div class="mb-3">
+      <label for="date_of_birth" class="form-label">Fecha de Nacimiento</label>
+      <input type="date" class="form-control" id="date_of_birth" [(ngModel)]="alumno.date_of_birth" name="date_of_birth" required>
+    </div>
+    <div class="mb-3">
+      <label for="father_name" class="form-label">Nombre del Padre</label>
+      <input type="text" class="form-control" id="father_name" [(ngModel)]="alumno.father_name" name="father_name" required>
+    </div>
+    <div class="mb-3">
+      <label for="mother_name" class="form-label">Nombre de la Madre</label>
+      <input type="text" class="form-control" id="mother_name" [(ngModel)]="alumno.mother_name" name="mother_name" required>
+    </div>
+    <div class="mb-3">
+      <label for="date_of_entry" class="form-label">Fecha de Ingreso</label>
+      <input type="date" class="form-control" id="date_of_entry" [(ngModel)]="alumno.date_of_entry" name="date_of_entry" required>
+    </div>
+    <div class="mb-3">
+      <label for="grade_id" class="form-label">Grado</label>
+      <select class="form-control" id="grade_id" [(ngModel)]="alumno.grade_id" name="grade_id" required>
+        <option *ngFor="let grade of grades; let i = index" [value]="i + 1">{{ grade }}</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="section_id" class="form-label">Sección</label>
+      <select class="form-control" id="section_id" [(ngModel)]="alumno.section_id" name="section_id" required>
+        <option *ngFor="let section of sections; let i = index" [value]="i + 1">{{ section }}</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Crear Alumno</button>
+  </form>
+</div>

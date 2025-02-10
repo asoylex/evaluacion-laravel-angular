@@ -1,0 +1,34 @@
+<div class="container mt-5 px-5">
+  <h2>Consultar Alumnos</h2>
+  <div class="mb-3">
+    <label for="grado" class="form-label">Grado</label>
+    <select class="form-control" id="grado" [(ngModel)]="gradoId" name="grado">
+      <option *ngFor="let grade of grades; let i = index" [value]="i + 1">{{ grade }}</option>
+    </select>
+  </div>
+
+  <button class="btn btn-primary" (click)="onConsultar()">Consultar</button>
+
+  <table class="table mt-4" *ngIf="alumnos.length > 0">
+    <thead>
+      <tr>
+        <th>Seccion</th>
+        <th>Nombre</th>
+        <th>Fecha de Nacimiento</th>
+        <th>Padre</th>
+        <th>Madre</th>
+        <th>Fecha de Ingreso</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let alumno of alumnos">
+        <td>{{ alumno.section.name }}</td>
+        <td>{{ alumno.name }}</td>
+        <td>{{ alumno.date_of_birth }}</td>
+        <td>{{ alumno.father_name }}</td>
+        <td>{{ alumno.mother_name }}</td>
+        <td>{{ alumno.date_of_entry }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
